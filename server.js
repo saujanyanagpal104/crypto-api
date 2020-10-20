@@ -1,7 +1,7 @@
 let express = require('express');
 let config = require('dotenv').config();
 let cors = require('cors');
-const request = require('request-promise');
+const requestPromise = require('request-promise');
 
 let app = express();
 let port = process.env.PORT;
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
         gzip: true
     };
 
-    request(requestOptions).then(response => {
+    requestPromise(requestOptions).then(response => {
         res.json(response);
     }).catch((err) => {
         console.log('API call error:', err.message);
