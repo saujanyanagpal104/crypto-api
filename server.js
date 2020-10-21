@@ -9,6 +9,8 @@ let port = process.env.PORT;
 app.use(cors());
 
 app.get('/', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     const requestOptions = {
         method: 'GET',
         uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
